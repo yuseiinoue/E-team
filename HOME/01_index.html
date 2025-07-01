@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ホーム - NIIGATA TOURISM</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="HOME.css">
+  <!-- スワイプ関係 -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 </head>
 <body>
   <div class="app">
@@ -14,9 +18,40 @@
     </header>
 
     <main>
-      <h2>ホーム</h2>
-    </main>
+      <!-- スライド -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/k_river.png" alt="写真1"></div>
+          <div class="swiper-slide"><img src="images/k_sea.png" alt="写真2"></div>
+          <div class="swiper-slide"><img src="images/k_tunnel.png" alt="写真3"></div>
+        </div>
 
+        <!-- 矢印 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- ページネーション -->
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <h3>ピックアップ</h3>
+      <!-- スライド -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/g_food_1.png" alt="写真1"></div>
+          <div class="swiper-slide"><img src="images/g_food_2.png" alt="写真2"></div>
+          <div class="swiper-slide"><img src="images/g_food_3.png" alt="写真3"></div>
+        </div>
+
+        <!-- 矢印 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- ページネーション -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </main>
+  <!-- メニューバー -->
     <nav>
       <a href="../HOME/01_index.html" class="nav-item">
         <span>🏠</span><br>ホーム
@@ -29,6 +64,26 @@
       </a>
     </nav>
   </div>
+  <!-- スワイプ関係 -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper('.swiper-container', {
+    loop: true, 
+    autoplay: {
+      delay: 3000, 
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+</script>
+
 </body>
 </html>
 
