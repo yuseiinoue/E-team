@@ -1,23 +1,35 @@
-body {
+/* すべての余白と隙間を強制リセット */
+* {
   margin: 0;
-  font-family: sans-serif;
-  background: #eee;
-  display: flex;
-  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* アプリ枠（スマホ表示） */
+/* スクロールバウンスや余白を防止 */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  background: #eee;
+  font-family: sans-serif;
+  height: 100%; /* ← これ重要！ */
+}
+
+/* アプリ本体 */
 .app {
   background: #fff;
   width: 100%;
   max-width: 430px;
   min-height: 100vh;
+  margin: 0 auto;        
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
+/* ヘッダー・フッター */
 header, nav {
   background: #fff;
   display: flex;
@@ -40,25 +52,34 @@ nav {
   justify-content: space-around;
   font-size: 12px;
   border-top: 1px solid #ccc;
-  margin-top: auto; 
+  margin-top: auto;
 }
 
+/* ロゴ画像（中央配置＆余白ゼロ） */
 .logo {
   height: 40px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
 }
 
+/* ハンバーガー */
 .menu-icon {
   font-size: 28px;
   cursor: pointer;
 }
 
+/* メインエリア（上60px、下60px空ける） */
 main {
   flex: 1;
-  padding: 80px 16px 80px; 
+  padding: 60px 16px 60px;
   box-sizing: border-box;
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
+/* ナビアイテム */
 .nav-item {
   text-align: center;
   text-decoration: none;
