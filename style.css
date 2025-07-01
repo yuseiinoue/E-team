@@ -1,1 +1,71 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+}
 
+/* アプリ枠（スマホ表示） */
+.app {
+  background: #fff;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+header, nav {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  justify-content: space-between;
+}
+
+nav {
+  position: sticky;
+  bottom: 0;
+  justify-content: space-around;
+  font-size: 12px;
+  border-top: 1px solid #ccc;
+  margin-top: auto; 
+}
+
+.logo {
+  height: 40px;
+}
+
+.menu-icon {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+main {
+  flex: 1;
+  padding: 80px 16px 80px; 
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.nav-item {
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-item span:first-child {
+  font-size: 20px;
+  display: block;
+}
