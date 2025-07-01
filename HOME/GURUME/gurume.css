@@ -1,0 +1,29 @@
+/* 画像を縦に中央揃えで並べるエリア */
+.image-list {
+  display: flex;              /* 子要素を並べる */
+  flex-direction: column;     /* 縦並びにする */
+  align-items: center;        /* 中央揃え */
+  gap: 20px;                  /* 画像間のスペース */
+  margin-top: 20px;
+}
+
+.image-list a {
+  display: block;
+  width: 80%;                 /* スマホ画面に収まるよう調整 */
+  text-align: center;
+}
+
+.image-list img {
+  width: 100%;                /* aタグ内で100%の幅 */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: block;
+  margin: 0 auto;
+}
+
+.image-list img:hover {
+  transform: scale(1.03);
+}
