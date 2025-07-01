@@ -10,7 +10,7 @@
 /* 各画像リンク（aタグ）に対するスタイル */
 .image-list a {
   display: block;             /* ブロック要素にして幅指定が効くようにする */
-  width: 90%;                 /* 親に対して80%の幅にする */
+  width: 90%;                 /* 親に対して90%の幅にする */
   text-align: center;         /* 画像や内容を中央揃えにする（今は画像だけ） */
 }
 
@@ -30,3 +30,47 @@
 .image-list img:hover {
   transform: scale(1.03);     /* 画像を少し（103%）拡大する */
 }
+
+.jpnfood-banner {
+  position: relative;             /* 子要素（文字）を画像の上に重ねるため */
+  width: 100%;                    /* 横幅いっぱい */
+  max-width: 600px;               /* 最大幅を600pxに制限（スマホ対応） */
+  margin: 0 auto;                 /* 左右中央に配置 */
+}
+
+.jpnfood-banner img {
+  width: 100%;                    /* 横幅を親に合わせる */
+  height: auto;                   /* 縦横比を保ったまま調整 */
+  display: block;                 /* 余白をなくすためにブロック表示 */
+}
+
+.jpnfood-banner .sushi-text {
+  position: absolute;             /* 画像に重ねる */
+  bottom: 0;                      /* 下端に固定 */
+  width: 100%;                    /* 横幅いっぱいにする */
+  background-color: rgba(10, 30, 60, 0.9); /* 半透明の紺色背景 */
+  color: white;                   /* 文字色を白に */
+  padding: 20px 16px;             /* 内側の余白 */
+  box-sizing: border-box;         /* padding含めてwidthを維持 */
+}
+
+.jpnfood-banner .sushi-text h1 {
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.jpnfood-banner .sushi-text .line {
+  width: 60px;
+  height: 3px;
+  background-color: red;
+  margin: 8px auto;
+}
+
+.jpnfood-banner .sushi-text p {
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+
