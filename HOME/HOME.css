@@ -34,3 +34,25 @@
 .swiper-button-prev {
   left: 10px;
 }
+/* SNSタグの設定 */
+.sns-style {
+  display: flex;
+  justify-content: center;  
+  gap: 10px;                
+  margin-top: 20px;         
+}
+
+.sns-style img {
+  width: 70px;              
+  height: auto;             
+  transition: transform 0.2s ease;
+}
+
+.sns-style img:hover {
+  transform: scale(1.1);    
+}
+
+/* 全体のスタイル */
+h3 {
+  font-family: Sawarabi Mincho;
+}
