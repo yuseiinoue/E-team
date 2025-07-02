@@ -5,17 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>マイページ - NIIGATA TOURISM</title>
   <link rel="stylesheet" href="../style.css">
+
 </head>
+
+
 <body>
   <div class="app">
     <header>
       <img src="../images/tag.png" alt="NIIGATA TOURISM APP" class="logo" style="display:block; margin:0 auto;"/>
       <div class="menu-icon" onclick="alert('メニュー開く')">☰</div>
     </header>
+  <div class="point-box">
+    <div>あなたの現在のポイント：<span id="point" class="point"></span></div>
+    <div id="expire" class="expire"></div>
+  </div>
 
-    <main>
-      <h2>マイページ</h2>
-    </main>
+  <script>
+    // ここでポイント数と期限を設定する
+    const userPoint = 100;
+    const pointExpiry = "2025/05/25";
+
+    // HTMLに反映する
+    document.getElementById("point").textContent = `${userPoint}pt`;
+    document.getElementById("expire").textContent = `ポイントの有効期限は${pointExpiry}までです。`;
+  </script>
 
     <nav>
       <a href="../HOME/01_index.html" class="nav-item">

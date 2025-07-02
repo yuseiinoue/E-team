@@ -1,0 +1,30 @@
+    body {
+font-family: sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+      justify-content: center; /* 横中央 */
+      align-items: center;     /* 縦中央 */
+    }
+
+.point-box {
+    background-color: #e4f7d9;
+    border-radius: 6px;
+    padding: 15px 20px;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 300px;
+    width: 100%;
+}
+
+.point-box .point {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007700;
+}
+
+.point-box .expire {
+    font-size: 14px;
+    margin-top: 5px;
+}
