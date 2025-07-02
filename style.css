@@ -28,7 +28,6 @@ html, body {
   display: flex;
   flex-direction: column;
 }
-
 /* ヘッダー・フッター */
 header, nav {
   background: #fff;
@@ -47,14 +46,38 @@ header {
 }
 
 nav {
-  position: sticky;
+  position: relative;
   bottom: 0;
   justify-content: space-around;
   font-size: 12px;
-  border-top: 1px solid #ccc;
   margin-top: auto;
 }
-/* メニューバー */
+/* 線だけを上にずらす */
+nav::before {
+  content: "";
+  position: absolute;
+  top: -5px; 
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #ccc;
+}
+nav img{
+  width: 35px;
+}
+/* ナビアイテム */
+.nav-item {
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-item span:first-child {
+  font-size: 20px;
+  display: block;
+}
+
+/* 上部メニューバー */
 .menu-bar-wrapper {
   position: relative;
   overflow: hidden;
@@ -120,16 +143,4 @@ main {
   box-sizing: border-box;
   overflow-y: auto;
   overscroll-behavior: contain;
-}
-
-/* ナビアイテム */
-.nav-item {
-  text-align: center;
-  text-decoration: none;
-  color: #000;
-}
-
-.nav-item span:first-child {
-  font-size: 20px;
-  display: block;
 }
