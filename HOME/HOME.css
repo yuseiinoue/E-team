@@ -5,6 +5,7 @@
   aspect-ratio: 25 / 9; 
   position: relative;
   overflow: hidden;
+  margin-top: -40px; 
 }
 
 .swiper-slide img {
@@ -43,9 +44,10 @@
 }
 
 .sns-style img {
-  width: 70px;              
+  width: 80px;              
   height: auto;             
   transition: transform 0.2s ease;
+  border-radius: 20%;
 }
 
 .sns-style img:hover {
@@ -53,6 +55,3 @@
 }
 
 /* 全体のスタイル */
-h3 {
-  font-family: Sawarabi Mincho;
-}
