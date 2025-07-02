@@ -18,16 +18,16 @@ html, body {
 
 /* アプリ本体 */
 .app {
-  background:#fff;
+  background: #fff;
   width: 100%;
   max-width: 430px;
-  min-height: 100vh;
+  height: 100vh; 
   margin: 0 auto;        
   position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
+
 /* ヘッダー・フッター */
 header, nav {
   background: #fff;
@@ -46,22 +46,18 @@ header {
 }
 
 nav {
-  position: relative;
+  position: sticky;
   bottom: 0;
+  background: #fff;
+  display: flex;
   justify-content: space-around;
   font-size: 12px;
-  margin-top: auto;
+  height: 60px;
+  border-top: 1px solid #ccc;
+  z-index: 10;
 }
-/* 線だけを上にずらす */
-nav::before {
-  content: "";
-  position: absolute;
-  top: -5px; 
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: #ccc;
-}
+
+
 nav img{
   width: 35px;
 }
@@ -140,7 +136,8 @@ nav img{
 main {
   flex: 1;
   padding: 60px 16px 60px;
-  box-sizing: border-box;
   overflow-y: auto;
   overscroll-behavior: contain;
+  box-sizing: border-box;
 }
+
