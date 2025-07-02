@@ -32,16 +32,29 @@
 
     <nav>
       <a href="../HOME/01_index.html" class="nav-item">
-        <span>🏠</span><br>ホーム
+        <span><img src="../images/home.png" alt="home"></span>ホーム
       </a>
       <a href="../SEARCH/01_index.html" class="nav-item">
-        <span>🔍</span><br>検索
+        <span><img src="../images/search.png" alt="search"></span>検索
       </a>
       <a href="../MYPAGE/01_index.html" class="nav-item">
-        <span>👤</span><br>マイページ
+        <span><img src="../images/profile.png" alt="search"></span>マイページ
       </a>
     </nav>
   </div>
+  </div>
+  <script>
+    // メニューで選択中の項目にアクティブ
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll(".menu-link");
+        links.forEach(link => {
+          link.addEventListener("click", function () {
+            links.forEach(l => l.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+      });
+  </script>
 </body>
 </html>
 

@@ -6,15 +6,36 @@
   position: relative;
   overflow: hidden;
   margin-top: -40px; 
+  z-index: 0;
+}
+
+.swiper-slide {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .swiper-slide img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   display: block;
+  border-radius: 8px;
 }
-
+/* 説明文 */
+.caption {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  pointer-events: none; /* キャプションがクリックの邪魔しないように */
+  z-index: 2;
+}
 /* （矢印）を画像内中央に */
 .swiper-button-next,
 .swiper-button-prev {
