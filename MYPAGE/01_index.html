@@ -21,15 +21,9 @@
     <div id="expire" class="expire"></div>
   </div>
 
-  <script>
-    // ここでポイント数と期限を設定する
-    const userPoint = 100;
-    const pointExpiry = "2025/05/25";
-
-    // HTMLに反映する
-    document.getElementById("point").textContent = `${userPoint}pt`;
-    document.getElementById("expire").textContent = `ポイントの有効期限は${pointExpiry}までです。`;
-  </script>
+  <main>
+    
+  </main>
   <!-- 下部メニュー -->
     <nav>
       <a href="../HOME/01_index.html" class="nav-item">
@@ -45,6 +39,13 @@
   </div>
   </div>
   <script>
+    // ここでポイント数と期限を設定する
+    const userPoint = 100;
+    const pointExpiry = "2025/05/25";
+
+    // HTMLに反映する
+    document.getElementById("point").textContent = `${userPoint}pt`;
+    document.getElementById("expire").textContent = `ポイントの有効期限は${pointExpiry}までです。`;
     // メニューで選択中の項目にアクティブ
     document.addEventListener("DOMContentLoaded", function () {
         const links = document.querySelectorAll(".menu-link");
