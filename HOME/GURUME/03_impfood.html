@@ -16,8 +16,28 @@
     <!-- ヘッダー -->
     <header>
       <img src="../../images/tag.png" alt="NIIGATA TOURISM APP" class="logo" style="display:block; margin:0 auto;"/>
-      <div class="menu-icon" onclick="alert('メニュー開く')">☰</div>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </header>
+    <!-- オーバーレイ（暗背景） -->
+      <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+      <!-- スライドメニュー -->
+      <div class="side-menu" id="sideMenu">
+        <ul>
+          <li><a href="#">お知らせ</a></li>
+          <li class="section-header">🔽SNS</li>
+          <li><a href="https://www.instagram.com/niigata_japan_/">Instagram</a></li>
+          <li><a href="https://x.com/umasaniigata">X</a></li>
+          <li><a href="https://www.facebook.com/umasaniigata">Facebook</a></li>
+          <li><a href="https://page.line.me/tev4586r?openQrModal=true">LINE</a></li>
+          <li class="section-header">🔽その他</li>
+          <li><a href="#">このアプリについて</a></li>
+          <li><a href="#">利用規約</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+          <li><a href="#">ヘルプとフィードバック</a></li>
+          <!-- 必要に応じて追加可能 -->
+        </ul>
+      </div>
     <!-- ヘッダーメニュー -->
     <div class="menu-bar">
       <a href="../NEWS/01_news.html" class="menu-link">特集</a>
@@ -75,6 +95,13 @@
           });
         });
       });
+      // メニューの開閉処理
+    function toggleMenu() {
+      const menu = document.getElementById('sideMenu');
+      const overlay = document.getElementById('overlay');
+      menu.classList.toggle('open');
+      overlay.classList.toggle('show');
+    }
   </script>
 </body>
 </html>
