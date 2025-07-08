@@ -61,6 +61,8 @@
         <!-- 矢印 -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+      </div>
 
         <!-- ピックアップ -->
         <section class="pickup-section">
@@ -71,13 +73,37 @@
 
               <!-- スライド１ -->
               <div class="swiper-slide">
-                <img src="images/pickup1.jpg" alt="夏休みスポット">
+                <a href="https://niigata-kankou.or.jp/event/2441"><img src="images/p_1.png" alt="夏休みスポット"></a>
                 <p>夏休みは新潟で遊んで学ぼう！ -自由研究おすすめスポット-</p>
               </div>
 
               <!-- スライド２ -->
               <div class="swiper-slide">
-                <img src="images/pickup2.jpg" alt="ガストロノミーツアー">
+                <a href="https://niigata-kankou.or.jp/experience/8870"><img src="images/p_2.png" alt="ガストロノミーツアー"></a>
+                <p>-新潟の“美味しい”を巡る特別な旅へ-ガストロノミーツアー</p>
+              </div>
+
+              <!-- スライド3 -->
+              <div class="swiper-slide">
+                <a href="https://niigata-kankou.or.jp/location/site/41128"><img src="images/p_3.png" alt="ガストロノミーツアー"></a>
+                <p>-新潟の“美味しい”を巡る特別な旅へ-ガストロノミーツアー</p>
+              </div>
+
+              <!-- スライド4 -->
+              <div class="swiper-slide">
+                <a href="https://niigata-kankou.or.jp/spot/7145"><img src="images/p_4.png" alt="ガストロノミーツアー"></a>
+                <p>-新潟の“美味しい”を巡る特別な旅へ-ガストロノミーツアー</p>
+              </div>
+
+              <!-- スライド5 -->
+              <div class="swiper-slide">
+                <a href="https://niigata-kankou.or.jp/blog/241"><img src="images/p_5.png" alt="ガストロノミーツアー"></a>
+                <p>-新潟の“美味しい”を巡る特別な旅へ-ガストロノミーツアー</p>
+              </div>
+
+              <!-- スライド6 -->
+              <div class="swiper-slide">
+                <a href="https://niigata-kankou.or.jp/feature/hegisoba/top"><img src="images/p_6.png" alt="ガストロノミーツアー"></a>
                 <p>-新潟の“美味しい”を巡る特別な旅へ-ガストロノミーツアー</p>
               </div>
 
@@ -92,8 +118,6 @@
         </section>
 
         <!-- ページネーション -->
-        <div class="swiper-pagination"></div>
-      </div>
       <div class="sns-style">
         <a href="https://www.facebook.com/umasaniigata"><img src="images/i_face.png" alt="フェイスブック"></a>
         <a href="https://x.com/umasaniigata"><img src="images/i_X.png" alt="X"></a>
@@ -153,8 +177,16 @@ function toggleMenu() {
   menu.classList.toggle('open');
   overlay.classList.toggle('show');
 }
-
-
+// ピックアップ
+const pickupSwiper = new Swiper('.pickup-swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 16,
+    freeMode: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 </script>
 
 </body>
