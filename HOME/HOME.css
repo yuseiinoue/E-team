@@ -61,18 +61,6 @@
   padding: 20px;
 }
 
-.pickup-section h2 {
-  font-weight: bold;
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.pickup-section .en {
-  font-family: 'Georgia', serif;
-  font-size: 18px;
-  color: #555;
-}
-
 .pickup-swiper .swiper-slide {
   width: 100px;
   flex-shrink: 0;
@@ -90,6 +78,59 @@
   margin-top: 6px;
   line-height: 1.4;
 }
+
+/* 記事スライダー */
+.article-slider-section {
+  margin: 20px 0;
+}
+
+.article-slider-wrapper {
+  overflow: hidden;
+  background-color: #f28c8c;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.article-slider {
+  display: flex;
+  animation: scrollArticle 20s linear infinite;
+}
+
+.article {
+  min-width: 150px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  color: #000;
+  font-size: 1.2em;
+  border-right: 2px solid white; 
+  text-align: center;
+}
+
+/* 無限スクロールアニメーション */
+@keyframes scrollArticle {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* もっと見るボタン */
+.more-button {
+  background-color: #fcbdf5;
+  text-align: center;
+  padding: 15px;
+  font-size: 1rem;
+}
+
+.more-button a {
+  color: black;
+  text-decoration: none;
+}
+
 
 /* SNSタグの設定 */
 .sns-style {
@@ -111,3 +152,28 @@
 }
 
 /* 全体のスタイル */
+h2 {
+  position: relative;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 10px;
+  padding-left: 12px; /* ← 縦線と文字の間隔 */
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 4px;
+  height: 2.8em;
+  background-color: #f28c8c; /* ← 好きな色に変更可能 */
+  border-radius: 2px;
+}
+
+
+.en {
+  font-family: 'Georgia', serif;
+  font-size: 18px;
+  color: #555;
+}

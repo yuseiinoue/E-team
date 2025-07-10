@@ -63,67 +63,88 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-pagination"></div>
       </div>
+      <br>
 
         <!-- ピックアップ -->
-        <section class="pickup-section">
           <h2><span class="en">What's on in Niigata</span><br>ピックアップ</h2>
-
+        <section class="pickup-section">
           <div class="swiper pickup-swiper">
             <div class="swiper-wrapper">
 
               <!-- スライド１ -->
               <div class="swiper-slide">
                 <a href="https://niigata-kankou.or.jp/event/2441"><img src="images/p_1.png" alt="夏休みスポット"></a>
-                <p>夏休みは新潟で遊んで学ぼう！ -自由研究おすすめスポット-</p>
+                <p>[イベント]<br>迫力満載！日本の伝統！長岡祭りの花火大会</p>
               </div>
 
               <!-- スライド２ -->
               <div class="swiper-slide">
                 <a href="https://niigata-kankou.or.jp/experience/8870"><img src="images/p_2.png" alt="ガストロノミーツアー"></a>
-                <p>-新潟の“美味しい”を巡る特別な旅へ-ガストロノミーツアー</p>
+                <p>[伝統]<br>新潟の伝統たらい舟・佐渡の海を渡ろう</p>
               </div>
 
               <!-- スライド3 -->
               <div class="swiper-slide">
                 <a href="https://niigata-kankou.or.jp/location/site/41128"><img src="images/p_3.png" alt="ガストロノミーツアー"></a>
-                <p>-新潟の“美味しい”を巡る特別な旅へ-ガストロノミーツアー</p>
+                <p>[稲作]<br>新潟の美味しいお米。育つのは棚田</p>
               </div>
 
               <!-- スライド4 -->
               <div class="swiper-slide">
                 <a href="https://niigata-kankou.or.jp/spot/7145"><img src="images/p_4.png" alt="ガストロノミーツアー"></a>
-                <p>-新潟の“美味しい”を巡る特別な旅へ-ガストロノミーツアー</p>
+                <p>[自然]<br>天然記念物。美しい海岸線。笹川流れ</p>
               </div>
 
               <!-- スライド5 -->
               <div class="swiper-slide">
                 <a href="https://niigata-kankou.or.jp/blog/241"><img src="images/p_5.png" alt="ガストロノミーツアー"></a>
-                <p>-新潟の“美味しい”を巡る特別な旅へ-ガストロノミーツアー</p>
+                <p>[グルメ]<br>ここでしか味わえない味覚体験を「龍寿し」</p>
               </div>
 
               <!-- スライド6 -->
               <div class="swiper-slide">
                 <a href="https://niigata-kankou.or.jp/feature/hegisoba/top"><img src="images/p_6.png" alt="ガストロノミーツアー"></a>
-                <p>-新潟の“美味しい”を巡る特別な旅へ-ガストロノミーツアー</p>
+                <p>[グルメ]<br>驚くほどの腰の強さ！「へぎそば」</p>
               </div>
 
               <!-- 以下略：必要なスライドだけ追加OK -->
 
             </div>
 
-            <!-- 矢印・ページネーション（任意） -->
+            <!-- 矢印 -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
           </div>
         </section>
 
-        <!-- ページネーション -->
+        <!-- タイトル -->
+        <h2><span class="en">What's News</span><br>特集記事</h2>
+
+        <!-- 記事スライダー -->
+      <section class="article-slider-section">
+        <div class="article-slider-wrapper">
+          <div class="article-slider" id="articleSlider">
+            <div class="article">記事内容 1</div>
+            <div class="article">記事内容 2</div>
+            <div class="article">記事内容 3</div>
+            <div class="article">記事内容 4</div>
+            <!-- ここに記事を増やせます -->
+          </div>
+        </div>
+
+        <div class="more-button">
+          <a href="NEWS/01_news.html">もっと見る  →</a>
+        </div>
+      </section>
+
+        <!-- SNS -->
       <div class="sns-style">
         <a href="https://www.facebook.com/umasaniigata"><img src="images/i_face.png" alt="フェイスブック"></a>
         <a href="https://x.com/umasaniigata"><img src="images/i_X.png" alt="X"></a>
         <a href="https://www.instagram.com/niigata_japan_/"><img src="images/i_Insta.png" alt="インスタ"></a>
         <a href="https://page.line.me/tev4586r?openQrModal=true"><img src="images/i_LINE.png" alt="LINE"></a>
       </div>
+
     </main>
 
   <!-- メニューバー -->
@@ -187,6 +208,13 @@ const pickupSwiper = new Swiper('.pickup-swiper', {
       prevEl: '.swiper-button-prev',
     },
   });
+
+  // 記事スライダー用クローンでループ（記事を2セットにする）
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.getElementById("articleSlider");
+  slider.innerHTML += slider.innerHTML; // 無限スクロール用に複製
+});
+
 </script>
 
 </body>
