@@ -65,6 +65,29 @@
       </div>
       <br>
 
+      <section class="time-section">
+        <h2><span class="en">Activities by Time of Day</span><br>今の時間の楽しみ方</h2>
+        <div class="time-switch">
+          <button class="time-btn active" data-time="morning">朝</button>
+          <button class="time-btn" data-time="noon">昼</button>
+          <button class="time-btn" data-time="night">夜</button>
+        </div>
+
+        <div class="time-content" id="morning" style="display: block;">
+          <img src="images/morning_sample.jpg" alt="朝の画像">
+          <p>朝のおすすめアクティビティ：朝日とともに絶景を楽しもう！</p>
+        </div>
+        <div class="time-content" id="noon" style="display: none;">
+          <img src="images/noon_sample.jpg" alt="昼の画像">
+          <p>昼のおすすめアクティビティ：流しそうめんや滝など夏の涼体験！</p>
+        </div>
+        <div class="time-content" id="night" style="display: none;">
+          <img src="images/night_sample.jpg" alt="夜の画像">
+          <p>夜のおすすめアクティビティ：夜景や花火大会を満喫！</p>
+        </div>
+      </section>
+
+
         <!-- ピックアップ -->
           <h2><span class="en">What's on in Niigata</span><br>ピックアップ</h2>
         <section class="pickup-section">
@@ -124,20 +147,20 @@
       <section class="article-slider-section">
         <div class="article-slider-wrapper">
           <div class="article-slider" id="articleSlider">
-            <div class="article">記事内容 1</div>
-            <div class="article">記事内容 2</div>
-            <div class="article">記事内容 3</div>
-            <div class="article">記事内容 4</div>
+            <div class="article"><img src="NEWS/images/art_1.png" alt="記事1"><span>夏といえばかき氷！<br>この夏新潟で食べたい<br>かき氷6選をご紹介</span></div>
+            <div class="article"><img src="NEWS/images/art_2.png" alt="記事2"><span>個性的な新潟ラーメン！<br>個性あふれる新潟ラーメン<br>6選をご紹介</span></div>
+            <div class="article"><img src="NEWS/images/art_3.png" alt="記事3"><span>迫力満点！<br>夜空を彩る越後<br>三大花火をご紹介</span></div>
             <!-- ここに記事を増やせます -->
           </div>
         </div>
 
         <div class="more-button">
-          <a href="NEWS/01_news.html">もっと見る  →</a>
+          <a href="NEWS/01_news.html">特集記事一覧  →</a>
         </div>
       </section>
 
         <!-- SNS -->
+         <br>
       <div class="sns-style">
         <a href="https://www.facebook.com/umasaniigata"><img src="images/i_face.png" alt="フェイスブック"></a>
         <a href="https://x.com/umasaniigata"><img src="images/i_X.png" alt="X"></a>
@@ -198,6 +221,29 @@ function toggleMenu() {
   menu.classList.toggle('open');
   overlay.classList.toggle('show');
 }
+
+// 時間ごとの楽しみ方
+  document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".time-btn");
+    const contents = document.querySelectorAll(".time-content");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const time = button.getAttribute("data-time");
+
+        // ボタンのアクティブ状態切り替え
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        // コンテンツの表示切り替え
+        contents.forEach(content => {
+          content.style.display = content.id === time ? "block" : "none";
+        });
+      });
+    });
+  });
+
+
 // ピックアップ
 const pickupSwiper = new Swiper('.pickup-swiper', {
     slidesPerView: 'auto',

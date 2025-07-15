@@ -48,8 +48,52 @@
     </div>
     <!-- メイン -->
     <main>
-      <p>特集</p>
-    </main>
+  <section class="feature-section">
+    <h2>旅の特集</h2>
+    <p>
+      新潟県を旅するヒントはこちら！新潟の観光事業、特集記事をご紹介！
+    </p>
+
+    <!-- 検索バー -->
+    <div class="filter-bar">
+      <input type="text" id="keywordInput" placeholder="キーワードを入力">
+      <button onclick="filterArticles()">検索</button>
+    </div>
+
+    <!-- 記事一覧 -->
+    <div id="articleList">
+      <div class="feature-card">
+        <div class="overlay-card">
+          <a href="https://niigata-kankou.or.jp/feature/shaved_ice/top"><img src="images/art_1.png" alt="画像1"></a>
+          <div class="overlay-text">
+            <h3>夏といえばかき氷！</h3>
+            <p>この夏新潟で食べたい、かき氷6選をご紹介</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="overlay-card">
+          <a href="https://niigata-kankou.or.jp/feature/ramen3/top"><img src="images/art_2.png" alt="画像1"></a>
+          <div class="overlay-text">
+            <h3>個性的な新潟ラーメン！</h3>
+            <p>個性あふれる新潟ラーメン6選をご紹介</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="overlay-card">
+          <a href="https://niigata-kankou.or.jp/feature/three_big_fireworks/top"><img src="images/art_3.png" alt="画像1"></a>
+          <div class="overlay-text">
+            <h3>迫力満点！新潟の花火</h3>
+            <p>夜空を彩る、越後三大花火をご紹介</p>
+          </div>
+        </div>
+      </div>
+  </section>
+</main>
+
     <!-- 下部メニュー -->
     <nav>
       <a href="../01_index.html" class="nav-item">
@@ -82,6 +126,20 @@
       menu.classList.toggle('open');
       overlay.classList.toggle('show');
     }
+    // 特集
+    function filterArticles() {
+    const keyword = document.getElementById("keywordInput").value.toLowerCase();
+    const cards = document.querySelectorAll("#articleList .feature-card");
+
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      if (text.includes(keyword)) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
   </script>
 </body>
 </html>
