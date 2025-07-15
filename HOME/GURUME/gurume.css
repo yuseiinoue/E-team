@@ -103,3 +103,23 @@
   border-radius: 2px;    /* 角を少し丸くする（任意） */
   /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); 少し影をつける（任意） */
 }
+
+/* sweets_04のスタイル */
+.sweets_04 {
+  display: block;        /* 中央揃えが効くようにする */
+  width: 100%;            /* 横幅を80%に調整（画面に収まる） */
+  height: auto;          /* 縦横比を維持して自動調整 */
+  margin: 0 auto;        /* 左右中央に配置 */
+  border-radius: 2px;    /* 角を少し丸くする（任意） */
+  /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); 少し影をつける（任意） */
+}
+
+/* sweets_05のスタイル */
+.sweets_05 {
+  display: block;        /* 中央揃えが効くようにする */
+  width: 100%;            /* 横幅を80%に調整（画面に収まる） */
+  height: auto;          /* 縦横比を維持して自動調整 */
+  margin: 0 auto;        /* 左右中央に配置 */
+  border-radius: 2px;    /* 角を少し丸くする（任意） */
+  /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); 少し影をつける（任意） */
+}
