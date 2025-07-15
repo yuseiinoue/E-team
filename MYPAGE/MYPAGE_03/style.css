@@ -1,0 +1,84 @@
+/* 全体の設定 */
+body {
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* スマホ枠 */
+.phone-frame {
+  width: 375px;
+  height: 667px;
+  background-color: white;
+  border: 12px solid #333;
+  border-radius: 40px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ヘッダー */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.menu i {
+  font-size: 24px;
+}
+
+/* メイン */
+.main-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.menu-list {
+  margin-top: 16px;
+  padding-left: 20px;
+}
+
+.logout-btn {
+  margin-top: 16px;
+  padding: 8px 12px;
+  background-color: transparent;
+  border: 1px solid #555;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* フッター */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  padding: 8px 0;
+  border-top: 1px solid #ccc;
+}
+
+.footer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+
+.footer i {
+  font-size: 20px;
+}
