@@ -39,7 +39,7 @@
 /* （矢印）を画像内中央に */
 .swiper-button-next,
 .swiper-button-prev {
-  color: white;
+  color:#000;
   top: 50%;
   transform: translateY(-50%);
   width: 30px;
@@ -47,6 +47,10 @@
   background: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
   padding: 5px;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color:white !important;
 }
 
 .swiper-button-next {
@@ -56,6 +60,43 @@
 .swiper-button-prev {
   left: 10px;
 }
+
+/* 時間ごとの楽しみ方 */
+.time-switch {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.time-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 9999px;
+  background-color: #ddd;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.time-btn.active {
+  background-color: #5FB3B3; /* 昼の色（お好みで） */
+  color: white;
+}
+
+.time-content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.time-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+
 /* ピックアップ */
 .pickup-section {
   padding: 20px;
@@ -85,28 +126,48 @@
 }
 
 .article-slider-wrapper {
-  overflow: hidden;
-  background-color: #f28c8c;
-  height: 80px;
+  overflow-x: auto;                     /* ← 横スクロール許可 */
+  background-color:white;
+  height: 100px;
   display: flex;
   align-items: center;
+  scrollbar-width: none;               /* Firefoxでスクロールバー非表示 */
+  border-top: 1px solid darkgreen;
+  border-bottom: 1px solid darkgreen;
+  box-shadow: 0 4px 8px rgba(0, 0, 0.5, 0.2);
+}
+
+.article-slider-wrapper::-webkit-scrollbar {
+  display: none;                        /* Chrome/Safariでスクロールバー非表示 */
 }
 
 .article-slider {
   display: flex;
-  animation: scrollArticle 20s linear infinite;
+  animation: scrollArticle 20s linear infinite; /* 自動スクロール継続 */
 }
 
+
 .article {
-  min-width: 150px;
+  min-width: 200px;
   padding: 10px 20px;
   box-sizing: border-box;
   white-space: nowrap;
   color: #000;
   font-size: 1.2em;
-  border-right: 2px solid white; 
-  text-align: center;
+  border-right: 1px solid darkgray;
+  text-align: left;
+  display: flex;           /* 横並びにする */
+  align-items: center;     /* 縦中央揃え */
+  gap: 10px;               /* 画像とテキストの間に余白 */
 }
+
+.article img {
+  width: 80px;             /* お好みで調整可能 */
+  height: 80px;
+  border-radius: 5px;      /* 角丸（任意） */
+  object-fit: cover;       /* はみ出し防止 */
+}
+
 
 /* 無限スクロールアニメーション */
 @keyframes scrollArticle {
@@ -120,10 +181,12 @@
 
 /* もっと見るボタン */
 .more-button {
-  background-color: #fcbdf5;
+  background-color:cadetblue;
   text-align: center;
   padding: 15px;
   font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0.2, 0.2, 0.2, 0.2);
+  margin-top: 5px;
 }
 
 .more-button a {
