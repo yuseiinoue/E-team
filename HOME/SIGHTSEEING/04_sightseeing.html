@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>特集 - NIIGATA TOURISM</title>
+  <title>観光- NIIGATA TOURISM</title>
   <link rel="stylesheet" href="../../style.css">
 
-  <!-- 宿泊ページ用cssの適用コード -->
-  <link rel="stylesheet" href="news.css">
+  <!-- 観光ページ用cssの適用コード -->
+  <link rel="stylesheet" href="sightseeing.css">
 
 
 </head>
@@ -40,60 +40,26 @@
       </div>
     <!-- ヘッダーメニュー -->
     <div class="menu-bar">
-      <a href="01_news.html" class="menu-link active">特集</a>
+      <a href="../NEWS/01_news.html" class="menu-link">特集</a>
       <a href="../GURUME/01_gurume.html" class="menu-link">グルメ</a>
-      <a href="../SIGHTSEEING/01_sightseeing.html" class="menu-link">観光</a>
+      <a href="01_sightseeing.html" class="menu-link active">観光</a>
       <a href="../EVENT/01_event.html" class="menu-link">イベント</a>
       <a href="../INN/01_inn.html" class="menu-link">宿泊</a>
     </div>
     <!-- メイン -->
     <main>
-  <section class="feature-section">
-    <h2>旅の特集</h2>
-    <p>
-      新潟県を旅するヒントはこちら！新潟の観光事業、特集記事をご紹介！
-    </p>
 
-    <!-- 検索バー -->
-    <div class="filter-bar">
-      <input type="text" id="keywordInput" placeholder="キーワードを入力">
-      <button onclick="filterArticles()">検索</button>
-    </div>
-
-    <!-- 記事一覧 -->
-    <div id="articleList">
-      <div class="feature-card">
-        <div class="overlay-card">
-          <a href="https://niigata-kankou.or.jp/feature/shaved_ice/top"><img src="images/art_1.png" alt="画像1"></a>
-          <div class="overlay-text">
-            <h3>夏といえばかき氷！</h3>
-            <p>この夏新潟で食べたい、かき氷6選をご紹介</p>
-          </div>
+      <!-- 画像を縦に並べるブロック -->
+        <div class="image-list">
+            <!-- 写真タップでページ移動 -->
+            <a href="https://niigata-kankou.or.jp/spot/7476"><img src="images/sightseeing_15.jpg" alt="画像1"></a>
+            <!-- 写真タップでページ移動 -->
+            <a href="https://niigata-kankou.or.jp/spot/14685"><img src="images/sightseeing_16.jpg" alt="画像2"></a>
+            <!-- 写真タップでページ移動 -->
+            <a href="https://niigata-kankou.or.jp/spot/10193"><img src="images/sightseeing_17.jpg" alt="画像3"></a>
         </div>
-      </div>
 
-      <div class="feature-card">
-        <div class="overlay-card">
-          <a href="https://niigata-kankou.or.jp/feature/ramen3/top"><img src="images/art_2.png" alt="画像1"></a>
-          <div class="overlay-text">
-            <h3>個性的な新潟ラーメン！</h3>
-            <p>個性あふれる新潟ラーメン6選をご紹介</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <div class="overlay-card">
-          <a href="https://niigata-kankou.or.jp/feature/three_big_fireworks/top"><img src="images/art_3.png" alt="画像1"></a>
-          <div class="overlay-text">
-            <h3>迫力満点！新潟の花火</h3>
-            <p>夜空を彩る、越後三大花火をご紹介</p>
-          </div>
-        </div>
-      </div>
-  </section>
-</main>
-
+    </main>
     <!-- 下部メニュー -->
     <nav>
       <a href="../01_index.html" class="nav-item">
@@ -126,20 +92,6 @@
       menu.classList.toggle('open');
       overlay.classList.toggle('show');
     }
-    // 特集
-    function filterArticles() {
-    const keyword = document.getElementById("keywordInput").value.toLowerCase();
-    const cards = document.querySelectorAll("#articleList .feature-card");
-
-    cards.forEach(card => {
-      const text = card.innerText.toLowerCase();
-      if (text.includes(keyword)) {
-        card.style.display = "flex";
-      } else {
-        card.style.display = "none";
-      }
-    });
-  }
   </script>
 </body>
 </html>

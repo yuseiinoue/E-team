@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特集 - NIIGATA TOURISM</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- ヘッダー -->
+    <header>
+      <img src="../../images/tag.png" alt="NIIGATA TOURISM APP" class="logo" style="display:block; margin:0 auto;"/>
+      <div class="menu-icon" onclick="alert('メニュー開く')">☰</div>
+    </header>
+    
+    <!-- メイン -->
+    <main class="main">
+    <h2 class="title">アンケートに答えて <span class="highlight">クーポン</span>ゲット！</h2>
+
+    <div class="coupon-box">
+      <p>〇〇イベントについての<br>アンケートにお答えください!!</p>
+      <p class="get">笹団子クーポン <span class="get-red">GET!</span></p>
+      <p class="limit">解答期限 2025/06/30</p>
+    </div>
+
+    <div class="coupon-box">
+      <p>〇〇フェスについての<br>アンケートにお答えください!!</p>
+      <p class="get">かきあげクーポン <span class="get-red">GET!</span></p>
+      <p class="limit">解答期限 2025/05/31</p>
+    </div>
+  </main>
+    <!-- 下部メニュー -->
+    <nav>
+      <a href="../../HOME/01_index.html" class="nav-item">
+        <span><img src="../../images/home.png" alt="home"></span>ホーム
+      </a>
+      <a href="../../SEARCH/01_index.html" class="nav-item">
+        <span><img src="../../images/search.png" alt="search"></span>検索
+      </a>
+      <a href="../../MYPAGE/01_index.html" class="nav-item">
+        <span><img src="../../images/profile.png" alt="search"></span>マイページ
+      </a>
+    </nav>
+  </div>
+  </div>
+  <script>
+    // メニューで選択中の項目にアクティブ
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll(".menu-link");
+        links.forEach(link => {
+          link.addEventListener("click", function () {
+            links.forEach(l => l.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+      });
+  </script>
+</body>
+</html>
+
+
+
+
+
