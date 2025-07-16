@@ -1,0 +1,32 @@
+/* 画像リスト全体を囲むラッパー */
+.image-list {
+  display: flex;              /* 子要素をフレックスボックスで並べる */
+  flex-direction: column;     /* 上から下への縦並びにする */
+  align-items: center;        /* 横方向（左右）を中央揃えにする */
+  gap: 20px;                  /* 画像同士の間隔を20pxにする */
+  margin-top: -40px;           /* 上に余白を追加 */
+}
+
+/* 各画像リンク（aタグ）に対するスタイル */
+.image-list a {
+  display: block;             /* ブロック要素にして幅指定が効くようにする */
+  width: 90%;                 /* 親に対して90%の幅にする */
+  text-align: center;         /* 画像や内容を中央揃えにする（今は画像だけ） */
+}
+
+/* 各画像に対するスタイル */
+.image-list img {
+  width: 100%;                /* 親の幅（aタグの80%）いっぱいに表示 */
+  height: auto;               /* 縦横比を保ったまま高さを自動調整 */
+  border-radius: 4%;        /* 角を丸くして見た目を柔らかくする */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* 画像の下に影を付けて立体感を出す */
+  cursor: pointer;           /* マウスを乗せたときにポインター（指）にする */
+  transition: transform 0.2s; /* アニメーションの変化を0.2秒で滑らかにする */
+  display: block;             /* ブロック要素にすることで中央揃えが効くようにする */
+  margin: 0 auto;             /* 左右中央に配置する */
+}
+
+/* マウスホバー時の画像拡大アニメーション */
+.image-list img:hover {
+  transform: scale(1.03);     /* 画像を少し（103%）拡大する */
+}
