@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>マイページ - NIIGATA TOURISM</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <img src="../../images/tag.png" alt="NIIGATA TOURISM APP" class="logo" style="display:block; margin:0 auto;"/>
+      <div class="menu-icon" onclick="alert('メニュー開く')">☰</div>
+    </header>
+
+    <main>
+      <div class="point-box">
+        <div>あなたの現在のポイント：<span id="point" class="point"></span></div>
+        <div id="expire" class="expire"></div>
+      </div>
+
+      <div class="menu-box">
+        <div class="menu-item" onclick="toggleMenu(this)">個人情報</div>
+        <div class="submenu">
+          <a href="#">メールアドレス変更</a>
+          <a href="#">パスワード変更</a>
+        </div>
+
+        <div class="menu-item" onclick="toggleMenu(this)">
+          クーポン情報
+          <span class="badge">1</span>
+        </div>
+        <div class="submenu">
+          <a href="#">未使用クーポン</a>
+          <a href="#">使用済みクーポン</a>
+        </div>
+
+        <div class="menu-item" onclick="toggleMenu(this)">アンケート</div>
+        <div class="submenu">
+          <a href="#">現在のアンケート</a>
+        </div>
+
+        <div class="menu-item" onclick="toggleMenu(this)">アプリ設定</div>
+        <div class="submenu">
+        </div>
+
+        <div class="menu-item" onclick="toggleMenu(this)">ヘルプ・質問</div>
+        <div class="submenu">
+          <a href="#">よくある質問</a>
+          <a href="#">お問い合わせ</a>
+        </div>
+      </div>
+
+      <div class="logout-box">
+        <button class="logout-btn">ログアウト</button>
+      </div>
+    </main>
+
+    <nav>
+      <a href="../HOME/mypage_01/01_index.html" class="nav-item">
+        <span><img src="../../images/home.png" alt="home"></span>ホーム
+      </a>
+      <a href="../SEARCH/mypage_01/01_index.html" class="nav-item">
+        <span><img src="../../images/search.png" alt="search"></span>検索
+      </a>
+      <a href="../MYPAGE/mypage_01/01_index.html" class="nav-item">
+        <span><img src="../../images/profile.png" alt="mypage"></span>マイページ
+      </a>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

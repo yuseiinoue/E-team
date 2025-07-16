@@ -20,7 +20,74 @@
   font-size: 22px;
   margin-top: 5px;
 }
-/* すべての余白と隙間を強制リセット */
+
+.menu-item {
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+  cursor: pointer;
+  position: relative;
+  background-color: white;
+}
+
+.menu-item::after {
+  content: "▶";
+  position: absolute;
+  right: 20px;
+  transition: transform 0.3s;
+}
+
+.menu-item.active::after {
+  transform: rotate(90deg);
+}
+
+.menu-item {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  position: relative;
+  background: white;
+}
+
+.menu-item::after {
+  content: "▶";
+  position: absolute;
+  right: 20px;
+  transition: transform 0.3s;
+}
+
+.menu-item.active::after {
+  transform: rotate(90deg);
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  background: #f8f8f8;
+  transition: max-height 0.3s ease;
+}
+
+.submenu a {
+  display: block;
+  padding: 10px 25px;
+  text-decoration: none;
+  color: #333;
+}
+
+.submenu.open {
+  max-height: 500px; /* 展開時の高さ（中身に応じて調整してね） */
+}
+
+.badge {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 7px;
+  font-size: 12px;
+  position: absolute;
+  right: 40px;
+  top: 13px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -73,7 +140,7 @@ nav {
   background: #fff;
   display: flex;
   justify-content: space-around;
-  font-size: 24px;
+  font-size: 12px;
   height: 60px;
   border-top: 1px solid #ccc;
   z-index: 10;
