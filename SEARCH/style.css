@@ -1,0 +1,62 @@
+main {
+  padding-bottom: 60px; /* フッター高さ確保 */
+}
+
+.search-bar {
+  display: flex;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 1em 0;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  padding: 1em 0;
+}
+
+.category img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5em;
+}
+
+.area-search {
+  margin: 1em;
+}
+
+.area-search button {
+  margin: 0.2em;
+  padding: 0.5em 1em;
+  border: none;
+  background: #e0e0e0;
+  border-radius: 5px;
+}
+
+.recommended {
+  padding: 1em;
+}
+
+.card {
+  margin-bottom: 1em;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}

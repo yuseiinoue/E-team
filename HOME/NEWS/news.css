@@ -63,8 +63,6 @@
 
 /* === カード内の画像 === */
 .feature-card img {
-  width: 150px;
-  height: 100px;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -93,9 +91,9 @@
 }
 
 .overlay-card img {
-  width: 100%;
+  width: 350px;
   display: block;
-  height: auto;
+  height: 220px;
   object-fit: cover;
 }
 

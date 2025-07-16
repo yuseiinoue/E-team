@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>検索 - NIIGATA TOURISM</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="app">
@@ -35,9 +36,46 @@
       </div>
     <!-- メイン -->
     <main>
-      
-      
-    </main>
+
+  <!-- 検索バー -->
+  <div class="search-bar">
+    <input type="text" placeholder="キーワードで検索">
+  </div>
+
+  <!-- カテゴリーアイコン -->
+  <div class="categories">
+    <div class="category"><img src="🍽️" alt=""><div>食事</div></div>
+    <div class="category"><img src="🏨" alt=""><div>宿泊</div></div>
+    <div class="category"><img src="🌳" alt=""><div>自然</div></div>
+    <div class="category"><img src="🎆" alt=""><div>イベント</div></div>
+    <div class="category"><img src="🏛️" alt=""><div>観光</div></div>
+    <div class="category"><img src="📅" alt=""><div>施設</div></div>
+  </div>
+
+  <!-- エリア別検索 -->
+  <section class="area-search">
+    <strong>エリア別検索:</strong><br/>
+    <button>下越地方</button>
+    <button>中越地方</button>
+    <button>上越地方</button>
+    <button>佐渡地方</button>
+  </section>
+
+  <!-- おすすめスポット -->
+  <section class="recommended">
+    <strong>おすすめスポット</strong>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Kawarayu_Onsen.jpg" alt="スポット">
+      <p>河原の湯 - 燕温泉</p>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Sake_Don.jpg" alt="食事">
+      <p>海鮮おひつごはん</p>
+    </div>
+  </section>
+
+</main>
+
     <!-- 下部メニュー -->
     <nav>
       <a href="../HOME/01_index.html" class="nav-item">
