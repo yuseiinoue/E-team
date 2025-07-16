@@ -1,0 +1,80 @@
+/* ページタイトルのスタイル ------------------------------------------------------------------------*/
+.page-title {
+    width: 100%;                          /* 横いっぱいに広げる */
+    background-color:white;            /* 紺色の帯にする（好みに応じて） */
+    color: black;                         /* 中の文字は白に */
+    display: flex;                        /* 横並びにする */
+    align-items: center;                  /* 縦の中心で揃える */
+    justify-content: space-between;       /* タイトル左、ボタン右 */
+    padding: 5px 10px;                    /* 上下左右に余白 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 下に影をつける */
+    box-sizing: border-box;               /* paddingも含めて幅を計算 */
+}
+
+.page-title > h1 {
+    margin-left: 20px; /* タイトルの左側に20pxの余白を追加 */
+}
+
+.logo {
+    height: 70px; /* お好みのサイズ */
+    margin-right: 10px;
+}
+
+/* ボタン全体のスタイル ------------------------------------------------------------------------*/
+.button_line001 a {
+    position: relative; /* 疑似要素(:before, :after)を絶対配置するため基準を作る */
+    display: flex; /* 中のコンテンツ（テキストなど）を横並びにする */
+    justify-content: space-around; /* 中身を均等に配置 */
+    align-items: center; /* 縦方向中央寄せ */
+    margin: 0 auto; /* 中央寄せ */
+    max-width: 200px; /* ボタンの最大横幅を200pxに制限 */
+    padding: 10px 25px; /* 上下10px、左右25pxの余白 */
+    color: #313131; /* テキストカラーをやや暗めのグレーに設定 */
+    transition: 0.3s ease-in-out; /* ホバー時のアニメーションをスムーズにする */
+    font-weight: 300; /* 文字をやや太字にする */
+    text-decoration: none; /* 下線を消す */
+}
+
+/* 下にうっすら線を引くための疑似要素 */
+.button_line001 a:before {
+    position: absolute; /* 親要素(a)を基準に絶対配置 */
+    bottom: 0px; /* 下端に配置 */
+    left: 50%; /* 水平方向の中央に配置 */
+    content: ''; /* 擬似要素のため空コンテンツ */
+    width: 100%; /* 横幅は親要素いっぱい */
+    height: 2px; /* 線の太さは2px */
+    background: rgba(63, 233, 103, 0.1); /* 薄い黒色の線 */
+    transform: translateX(-50%); /* 左方向に50%ずらして、完全に中央揃え */
+}
+
+/* ホバー時に伸びる線を作る疑似要素 */
+.button_line001 a:after {
+    position: absolute; /* 親要素(a)を基準に絶対配置 */
+    bottom: 0px; /* 下端に配置 */
+    left: 0; /* 左端に配置 */
+    content: ''; /* 擬似要素のため空コンテンツ */
+    width: 100%; /* 横幅は親要素いっぱい */
+    height: 2px; /* 線の太さは2px */
+    background: green; /* 線の色は黒 */
+    transform: scale(0, 1); /* 横方向だけ0に縮小して最初は非表示にする */
+    transform-origin: left top; /* 左上を基準に拡大・縮小させる */
+    transition: transform .3s; /* ホバー時の拡大をアニメーションで滑らかに */
+}
+
+/* ホバーしたときのボタン本体の動き */
+.button_line001 a:hover {
+    opacity: 0.7; /* 少し透明にしてクリック感を出す */
+}
+
+/* ホバーしたときの線の動き */
+.button_line001 a:hover:after {
+    transform: scale(1, 1); /* 横方向の縮小を解除して線を伸ばす */
+}
+
+.button_wrapper {
+    display: flex; /* 中のボタンを横並びにする */
+    gap: 20px; /* ボタン同士の間に20pxのすき間を空ける */
+    justify-content: flex-end; /* ボタンを右寄せ */
+    flex-wrap: wrap; /* 画面が狭い時は折り返す */
+    margin-right: 20px; /* 右側に20pxの余白を追加 */
+}
