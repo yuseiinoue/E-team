@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>アンケート画面</title>
+<style>
+
+  .body, html {
+    margin: 0;                   
+    padding: 0;                  
+    height: 100vh;               
+    font-family: sans-serif;     
+  }
+
+  .container {
+    display: flex;               
+    height: 100%;               
+  }
+
+  .left, .right {
+    width: 50%;                 
+    padding: 20px;              
+    box-sizing: border-box;     
+  }
+
+  .left {
+    text-align: center;          
+    background-color: #fefefe;   
+
+    position: relative;
+    height: 300px;               
+    background-image: url('https://via.placeholder.com/600x300?text=アンケート画像');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* 四角い枠のテキストエリア */
+  .info-box {
+    background-color: rgba(255, 255, 255, 0.9); /* 白背景・少し透過 */
+    border: 2px solid #333;    /* 濃いめの枠線 */
+    border-radius: 1px;
+    padding: 20px 30px;
+    width: 80%;
+    box-sizing: border-box;
+    color: #333;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .right {
+    background-color: #fefefe; 
+  }
+
+  label {
+    display: block;              
+    margin-top: 10px;           
+  }
+
+  input {
+    width: 90%;                 
+    padding: 5px;               
+    margin-top: 4px;            
+  }
+  
+  .page-title {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); 
+    z-index: 10;                  
+    position: relative;           
+    width: 100%;                  
+    background-color: white;      
+    color: black;                 
+    display: flex;                
+    align-items: center;          
+    justify-content: space-between;
+    padding: 5px 10px;            
+    box-sizing: border-box;       
+  }
+
+</style>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="page-title">
+    <img src="images/tag.png" alt="ロゴ" class="logo" style="height: 70px; margin-right:10px;">
+    <h1>管理者用画面</h1>
+    <div class="button_wrapper" style="display:flex; gap:20px; justify-content:flex-end; margin-right:20px;">
+      <div class="button_line001"><a href="01_admin.html">HOME</a></div>
+      <div class="button_line001"><a href="02_admin.html">クーポン</a></div>
+      <div class="button_line001"><a href="03_admin.html">アンケート</a></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="left" id="displayArea">
+      <div class="info-box" id="infoBox">
+        アンケート名: 未入力<br>
+        クーポン名: 未入力<br>
+        有効期限: 未設定
+      </div>
+    </div>
+
+    <div class="right">
+      <h2>アンケート情報入力</h2>
+      <label>アンケート名
+        <input type="text" id="surveyNameInput" placeholder="例：満足度アンケート">
+      </label>
+      <label>クーポン名
+        <input type="text" id="nameInput" placeholder="例：サーモンいくら海鮮丼">
+      </label>
+      <label>有効期限
+        <input type="date" id="expiryInput">
+      </label>
+    </div>
+  </div>
+
+<script>
+  const surveyNameInput = document.getElementById('surveyNameInput');
+  const nameInput = document.getElementById('nameInput');
+  const expiryInput = document.getElementById('expiryInput');
+  const infoBox = document.getElementById('infoBox');
+
+  function updateDisplay() {
+    const surveyName = surveyNameInput.value.trim() || '"アンケート名"';
+    const couponName = nameInput.value.trim() || '"クーポン名"';
+    const expiry = expiryInput.value || '未設定';
+
+    infoBox.innerHTML = 
+      `${surveyName}のアンケートにお答えください！！<br>` +
+      `${couponName}のクーポンGET!<br>` +
+      `有効期限: ${expiry}`;
+  }
+
+  [surveyNameInput, nameInput, expiryInput].forEach(input => {
+    input.addEventListener('input', updateDisplay);
+  });
+
+  updateDisplay(); // 初期表示
+</script>
+</body>
+</html>
