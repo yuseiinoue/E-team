@@ -2,48 +2,132 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
-<link rel="stylesheet" href="admin.css">
 <title>クーポン作成アプリ</title>
 <style>
-  body, html {
-    margin: 0; padding: 0; height: 100vh;
-    font-family: sans-serif;
+
+  .body, html {
+    margin: 0;                    /* ページ全体の余白をゼロに */
+    padding: 0;                   /* ページ全体の内側余白をゼロに */
+    height: 100vh;                /* ビューポートの高さいっぱいに設定 */
+    font-family: sans-serif;      /* 文字フォントをサンセリフ体に */
   }
+
   .container {
-    display: flex;
-    height: 100%;
+    display: flex;                /* 子要素を横並びのフレックスボックスに */
+    height: 100%;                /* 親要素の高さいっぱいに */
   }
+
   .left, .right {
-    width: 50%;
-    padding: 20px;
-    box-sizing: border-box;
+    width: 50%;                  /* 左右カラムをそれぞれ画面幅の半分に */
+    padding: 20px;               /* 内側に20pxの余白 */
+    box-sizing: border-box;      /* パディング込みで幅を計算 */
   }
+
   .left {
-    border-right: 1px solid #ccc;
-    text-align: center;
+    /* border-right: 1px solid #ccc; 右側に薄いグレーの線を引く */
+    text-align: center;           /* テキストを中央寄せ */
+    background-color: #fefefe;    /* 背景色をほぼ白に設定 */
   }
-  .left img {
-    max-width: 100%;
-    height: auto;
+
+  .right {
+    background-color: #fefefe;    /* 背景色を白
+    に設定 */
   }
-  .info {
-    margin-top: 10px;
-    font-size: 16px;
-  }
+
   label {
-    display: block;
-    margin-top: 10px;
+    display: block;               /* ラベルをブロック要素化（改行される） */
+    margin-top: 10px;            /* 上部に10pxの余白 */
   }
+
   input {
-    width: 90%;
-    padding: 5px;
-    margin-top: 4px;
+    width: 90%;                  /* 入力欄の幅を90%に設定 */
+    padding: 5px;                /* 内側に5pxの余白 */
+    margin-top: 4px;             /* 上部に4pxの余白 */
   }
+
+  /* クーポン表示カード */
+  .coupon-card {
+    width: 90%;                  /* 横幅90% */
+    margin: 0 auto;              /* 左右中央寄せ */
+    border-radius: 10px;         /* 角を丸く（半径10px） */
+    overflow: hidden;            /* はみ出した部分を隠す */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影をつける */
+    background-color: #ffecec;   /* 薄いピンク色の背景 */
+  }
+
+  .coupon-card img {
+    width: 100%;                 /* 画像をカード幅いっぱいに */
+    height: auto;                /* 高さは自動調整 */
+    display: block;              /* 余白をなくすためブロック化 */
+  }
+
+  .coupon-info {
+    padding: 16px;               /* 内側余白16px */
+    text-align: left;            /* 左寄せ */
+  }
+
+  .coupon-info h2 {
+    margin: 0 0 12px;            /* 上0、左右0、下12pxの余白 */
+    font-size: 40px;             /* フォントサイズ18px */
+    color: #333;                 /* 濃いグレー文字色 */
+  }
+
+  .price-row {
+    display: flex;               /* 横並びのフレックス */
+    align-items: center;         /* 縦中央揃え */
+    gap: 12px;                  /* 子要素間の隙間12px */
+    margin-bottom: 10px;         /* 下に10px余白 */
+  }
+
+  .original-price {
+    font-size: 18px;             /* フォント18px */
+    color: #888;                 /* 薄いグレー */
+    text-decoration: line-through; /* 取り消し線を引く */
+  }
+
+  .discounted-price {
+    font-size: 36px;             /* フォント28pxで大きく */
+    color: red;                  /* 赤色文字 */
+    font-weight: bold;           /* 太字 */
+  }
+
+  .expiry {
+    font-size: 12px;             /* 小さめフォント12px */
+    color: #555;                 /* 中間のグレー */
+    text-align: right;           /* 右寄せ */
+  }
+
+  .placeholder-text {
+    color: #999;                 /* 薄いグレー文字 */
+    font-size: 16px;             /* フォント16px */
+    margin-top: 40%;             /* 上部余白を40%にして中央寄せっぽく */
+  }
+  
+  .page-title {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* 濃く広い影を付ける */
+    z-index: 10;                   /* 他要素より前面に表示 */
+    position: relative;            /* 位置調整の基準を設定 */
+  }
+
+  .page-title {
+    width: 100%;                   /* 横幅を画面いっぱいに */
+    background-color: white;       /* 背景色を白に */
+    color: black;                  /* 文字色を黒に */
+    display: flex;                 /* 子要素を横並びに */
+    align-items: center;           /* 縦方向中央揃え */
+    justify-content: space-between; /* 左右に要素を分散配置 */
+    padding: 5px 10px;             /* 上下5px、左右10pxの余白 */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* 下に影を付ける */
+    box-sizing: border-box;        /* パディング込みで幅を計算 */
+  }
+
+
 </style>
+    <link rel="stylesheet" href="admin.css">
+    <!-- 外部CSSファイル（style.css）をリンク -->
 </head>
 <body>
-
-<!-- 共通ナビゲーション部分を表示するためのdivタグ -->
+  <!-- 共通ナビゲーション部分を表示するためのdivタグ -->
     <div class="page-title">
 
         <img src="images/tag.png" alt="ロゴ" class="logo">
@@ -66,25 +150,25 @@
 
 <div class="container">
   <div class="left" id="couponDisplay">
-    <p>ここにクーポン画像と情報が表示されます</p>
+    <p class="placeholder-text">ここにクーポン画像と情報が表示されます</p>
   </div>
 
   <div class="right">
     <h2>クーポン情報入力</h2>
     <label>クーポン名
-      <input type="text" id="nameInput" placeholder="例：クーポンA">
+      <input type="text" id="nameInput" placeholder="例：サーモンいくら海鮮丼">
     </label>
     <label>割引前価格
-      <input type="text" id="beforeInput" placeholder="例：1000円">
+      <input type="text" id="beforeInput" placeholder="例：1200">
     </label>
     <label>割引後価格
-      <input type="text" id="afterInput" placeholder="例：800円">
+      <input type="text" id="afterInput" placeholder="例：100">
     </label>
     <label>有効期限
       <input type="date" id="expiryInput">
     </label>
     <label>画像URL
-      <input type="text" id="imgInput" placeholder="例：https://example.com/coupon.jpg">
+      <input type="text" id="imgInput" placeholder="例：https://example.com/image.jpg">
     </label>
   </div>
 </div>
@@ -105,16 +189,24 @@
     const imgUrl = imgInput.value.trim();
 
     if (!imgUrl) {
-      display.innerHTML = '<p>画像URLを入力してください</p>';
+      display.innerHTML = '<p class="placeholder-text">画像URLを入力してください</p>';
       return;
     }
 
     display.innerHTML = `
-      <img src="${imgUrl}" alt="${name || 'クーポン画像'}" onerror="this.onerror=null;this.src=''; alert('画像が読み込めませんでした');">
-      <div class="info">クーポン名: ${name || '-'}</div>
-      <div class="info">割引前価格: ${before || '-'}</div>
-      <div class="info">割引後価格: ${after || '-'}</div>
-      <div class="info">有効期限: ${expiry || '-'}</div>
+      <div class="coupon-card">
+        <img src="${imgUrl}" alt="${name || 'クーポン画像'}" 
+             onerror="this.onerror=null;this.src=''; alert('画像が読み込めませんでした');">
+        <div class="coupon-info">
+          <h2>${name || 'クーポン名'}</h2>
+          <div class="price-row">
+            <span class="original-price">¥${before || '---'}</span>
+            <span>▶</span>
+            <span class="discounted-price">¥${after || '---'}</span>
+          </div>
+          <div class="expiry">有効期限: ${expiry || '----/--/--'}</div>
+        </div>
+      </div>
     `;
   }
 
