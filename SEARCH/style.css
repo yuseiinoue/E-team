@@ -1,62 +1,116 @@
-main {
-  padding-bottom: 60px; /* フッター高さ確保 */
-}
-
+/* 検索バー */
 .search-bar {
   display: flex;
-  padding: 0.5em 1em;
-  border-bottom: 1px solid #ddd;
+  margin-top: -30px;
 }
-
 .search-bar input {
   flex: 1;
-  padding: 0.5em;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 8px;
+  font-size: 1rem;
+}
+.search-bar button {
+  padding: 8px;
+  font-size: 1rem;
 }
 
-.categories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 1em 0;
+/* ジャンル絞込み */
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 10px;
 }
-
-.category {
+.genre-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25%;
-  padding: 1em 0;
-}
-
-.category img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 0.5em;
-}
-
-.area-search {
-  margin: 1em;
-}
-
-.area-search button {
-  margin: 0.2em;
-  padding: 0.5em 1em;
   border: none;
-  background: #e0e0e0;
-  border-radius: 5px;
+  background: none;
+}
+.genre-item img {
+  width: 100px;
+  height: 100px;
+}
+.genre-item span {
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+.genre-item.selected {
+  border: 2px solid #00aaff;
+  background-color: #eefaff;
 }
 
-.recommended {
-  padding: 1em;
+
+/* フィルター */
+#activeFilters button {
+  background-color: #ccc;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#activeFilters button:hover {
+  background-color: #bbb;
+}
+.filter-tag {
+  display: inline-block;
+  background-color: #f0f8ff;
+  color: #333;
+  border: 1px solid #3498db;
+  border-radius: 15px;
+  padding: 4px 10px;
+  margin: 5px 5px 0 0;
+  font-size: 14px;
+}
+.filter-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 4px;
+  background: #eee;
+  border-radius: 20px;
+  font-size: 0.9em;
 }
 
-.card {
-  margin-bottom: 1em;
+
+/* エリア検索 */
+.area-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px;
+}
+.area-buttons button {
+  padding: 15px 50px;
+  font-size: 0.9rem;
+}
+.area-buttons button.selected {
+  border: 2px solid #00aaff;
+  background-color: #eefaff;
 }
 
-.card img {
+
+/* アイテム */
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+}
+.result-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.result-item img {
   width: 100%;
+  height: auto;
   border-radius: 8px;
+}
+
+/* タイトル */
+.section-title {
+  font-size: 1.1rem;
+  margin: 20px 10px 10px;
+  padding-top: 5px;
+  border-bottom: 2px solid #ccc; /* ← 横線の色と太さ */
 }
