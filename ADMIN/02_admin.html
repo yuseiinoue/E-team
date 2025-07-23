@@ -167,9 +167,10 @@
     <label>有効期限
       <input type="date" id="expiryInput">
     </label>
-    <label>画像URL
-      <input type="text" id="imgInput" placeholder="例：https://example.com/image.jpg">
+    <label>画像ファイル
+      <input type="file" id="imgFileInput" accept="image/*">
     </label>
+
   </div>
 </div>
 
@@ -178,25 +179,26 @@
   const beforeInput = document.getElementById('beforeInput');
   const afterInput = document.getElementById('afterInput');
   const expiryInput = document.getElementById('expiryInput');
-  const imgInput = document.getElementById('imgInput');
+  const imgFileInput = document.getElementById('imgFileInput'); // ファイル選択用
   const display = document.getElementById('couponDisplay');
+
+  let currentImgUrl = '';
 
   function updateDisplay() {
     const name = nameInput.value.trim();
     const before = beforeInput.value.trim();
     const after = afterInput.value.trim();
     const expiry = expiryInput.value;
-    const imgUrl = imgInput.value.trim();
+    const imgUrl = currentImgUrl;
 
     if (!imgUrl) {
-      display.innerHTML = '<p class="placeholder-text">画像URLを入力してください</p>';
+      display.innerHTML = '<p class="placeholder-text">画像を選択してください</p>';
       return;
     }
 
     display.innerHTML = `
       <div class="coupon-card">
-        <img src="${imgUrl}" alt="${name || 'クーポン画像'}" 
-             onerror="this.onerror=null;this.src=''; alert('画像が読み込めませんでした');">
+        <img src="${imgUrl}" alt="${name || 'クーポン画像'}">
         <div class="coupon-info">
           <h2>${name || 'クーポン名'}</h2>
           <div class="price-row">
@@ -210,9 +212,23 @@
     `;
   }
 
-  [nameInput, beforeInput, afterInput, expiryInput, imgInput].forEach(input => {
+  // ファイル選択時の処理
+  imgFileInput.addEventListener('change', () => {
+    const file = imgFileInput.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      currentImgUrl = e.target.result; // ファイルのデータURLを保持
+      updateDisplay();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // 他の入力欄の変化時も表示を更新
+  [nameInput, beforeInput, afterInput, expiryInput].forEach(input => {
     input.addEventListener('input', updateDisplay);
   });
+
 </script>
 
 </body>
