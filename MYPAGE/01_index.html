@@ -5,57 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>マイページ - NIIGATA TOURISM</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
   <div class="app">
+
     <header>
       <img src="../images/tag.png" alt="NIIGATA TOURISM APP" class="logo" style="display:block; margin:0 auto;"/>
       <div class="menu-icon" onclick="alert('メニュー開く')">☰</div>
     </header>
+
     <main>
+
       <div class="point-box">
         <div>あなたの現在のポイント：<span id="point" class="point"></span></div>
         <div id="expire" class="expire"></div>
       </div>
-    </main>
-    <main>
-    <div class="menu-box">
-        <div class="menu-item">個人情報</div>
-        <div class="menu-item">
-          クーポン情報
-          <span class="badge">1</span>
-        </div>
-        <div class="menu-item">アンケート</div>
-        <div class="menu-item">アプリ設定</div>
-        <div class="menu-item">ヘルプ・質問</div>
+
+      <div class="menu-box">
+
+        <!-- 個人情報 -->
+        <a href="#" class="menu-link">
+          <div class="menu-item">個人情報</div>
+        </a>
+
+        <!-- クーポン情報 -->
+        <a href="MYPAGE_03/coupon.html" class="menu-link">
+          <div class="menu-item">
+            クーポン情報
+            <span class="badge">1</span>
+          </div>
+        </a>
+
+        <!-- アンケート -->
+        <a href="MYPAGE_02/ank.html" class="menu-link">
+          <div class="menu-item">アンケート</div>
+        </a>
+
+        <!-- アプリ設定 -->
+        <a href="#" class="menu-link">
+          <div class="menu-item">アプリ設定</div>
+        </a>
+
+        <!-- ヘルプ・質問 -->
+        <a href="#" class="menu-link">
+          <div class="menu-item">ヘルプ・質問</div>
+        </a>
+
       </div>
 
-  <main>
-    <main>
-  <!-- メニューリスト -->
-  <ul class="menu-list">
-    <li class="menu-item">個人情報</li>
-    <li class="menu-item">
-      クーポン情報
-      <span class="badge">1</span>
-    </li>
-    <li class="menu-item">アンケート</li>
-    <li class="menu-item">アプリ設定</li>
-    <li class="menu-item">ヘルプ・質問</li>
-  </ul>
-
-  <!-- ログアウトボタン -->
-  <div class="logout-box">
-    <button class="logout-btn">ログアウト</button>
-  </div>
-</main>
-
-
+      <!-- ログアウトボタン -->
       <div class="logout-box">
         <button class="logout-btn">ログアウト</button>
       </div>
 
-  </main>
+    </main>
+
+
     <nav>
       <a href="../HOME/01_index.html" class="nav-item">
         <span><img src="../images/home.png" alt="home"></span>ホーム
@@ -67,9 +73,11 @@
         <span><img src="../images/profile.png" alt="search"></span>マイページ
       </a>
     </nav>
+
   </div>
 
   <!-- ✅ ここ！ -->
   <script src="script.js"></script>
+
 </body>
 </html>
