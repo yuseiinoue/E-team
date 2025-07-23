@@ -35,46 +35,65 @@
         </ul>
       </div>
     <!-- メイン -->
-    <main>
-
+<main class="search-page">
+  <!-- 検索バー -->
   <!-- 検索バー -->
   <div class="search-bar">
-    <input type="text" placeholder="キーワードで検索">
+    <input type="text" placeholder="キーワードで検索" id="keywordInput">
+    <button onclick="applyFilters()">🔍</button>
+  </div>
+  <!-- 選択中の条件表示エリア -->
+  <div id="selectedFilters" class="selected-filters" style="margin: 10px 0;"></div>
+  <!-- リセット -->
+  <div id="activeFilters" style="text-align:center; margin-bottom: 1em;"></div>
+
+
+  <!-- フィルターUI全体（ジャンルや地域の選択ボタンなど） -->
+  <div id="filterUI">
+    <!-- ジャンル選択（3x2の画像ボタン） -->
+    <h2 class="section-title">ジャンル別検索</h2>
+    <div class="genre-grid">
+      <button class="genre-item" data-genre="食事"><img src="images/food.png" alt="食事"><span>食事</span></button>
+      <button class="genre-item" data-genre="観光"><img src="images/sightseeing.png" alt="観光"><span>観光</span></button>
+      <button class="genre-item" data-genre="自然"><img src="images/nature.png" alt="自然"><span>自然</span></button>
+      <button class="genre-item" data-genre="イベント"><img src="images/event.png" alt="イベント"><span>イベント</span></button>
+      <button class="genre-item" data-genre="体験"><img src="images/active.png" alt="体験"><span>体験</span></button>
+      <button class="genre-item" data-genre="宿泊"><img src="images/inn.png" alt="宿泊"><span>宿泊</span></button>
+    </div>
+
+    <!-- エリア別検索 -->
+    <h2 class="section-title">エリア別検索</h2>
+    <div class="area-buttons">
+      <button onclick="filterArea('下越地方')">下越地方</button>
+      <button onclick="filterArea('中越地方')">中越地方</button>
+      <button onclick="filterArea('上越地方')">上越地方</button>
+      <button onclick="filterArea('佐渡地方')">佐渡地方</button>
+    </div>
+    <br>
   </div>
 
-  <!-- カテゴリーアイコン -->
-  <div class="categories">
-    <div class="category"><img src="🍽️" alt=""><div>食事</div></div>
-    <div class="category"><img src="🏨" alt=""><div>宿泊</div></div>
-    <div class="category"><img src="🌳" alt=""><div>自然</div></div>
-    <div class="category"><img src="🎆" alt=""><div>イベント</div></div>
-    <div class="category"><img src="🏛️" alt=""><div>観光</div></div>
-    <div class="category"><img src="📅" alt=""><div>施設</div></div>
+
+  <!-- 結果一覧 -->
+  <h2 class="section-title">一覧</h2>
+  <div id="searchResults" class="results">
+    <!-- 初期状態ではすべて表示 -->
+    <div class="result-item" data-genre="自然" data-area="下越地方" data-title="弥彦山ロープウェイ">
+      <img src="../images/sample1.jpg" alt="観光地1">
+      <h4>弥彦山ロープウェイ</h4>
+      <p>自然｜下越地方</p>
+    </div>
+
+    <div class="result-item" data-genre="観光" data-area="中越地方" data-title="マリンピア日本海">
+      <img src="../images/sample2.jpg" alt="観光地2">
+      <h4>マリンピア日本海</h4>
+      <p>観光｜中越地方</p>
+    </div>
+<!-- 追加アイテムも同様に -->
+
+    <!-- ...必要なだけ追加 -->
   </div>
-
-  <!-- エリア別検索 -->
-  <section class="area-search">
-    <strong>エリア別検索:</strong><br/>
-    <button>下越地方</button>
-    <button>中越地方</button>
-    <button>上越地方</button>
-    <button>佐渡地方</button>
-  </section>
-
-  <!-- おすすめスポット -->
-  <section class="recommended">
-    <strong>おすすめスポット</strong>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Kawarayu_Onsen.jpg" alt="スポット">
-      <p>河原の湯 - 燕温泉</p>
-    </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Sake_Don.jpg" alt="食事">
-      <p>海鮮おひつごはん</p>
-    </div>
-  </section>
-
 </main>
+
 
     <!-- 下部メニュー -->
     <nav>
@@ -107,7 +126,147 @@
       menu.classList.toggle('open');
       overlay.classList.toggle('show');
     }
+    // 検索
+  let selectedGenre = '';
+let selectedArea = '';
+
+// ジャンルボタンクリック時（選択のみ）
+document.querySelectorAll('.genre-item').forEach(button => {
+  button.addEventListener('click', () => {
+    // ボタンの選択スタイル
+    document.querySelectorAll('.genre-item').forEach(b => b.classList.remove('selected'));
+    button.classList.add('selected');
+
+    selectedGenre = button.dataset.genre;
+    // applyFilters()は呼ばない！
+  });
+});
+
+  // エリアボタンクリック時
+  document.querySelectorAll('.area-buttons button').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.area-buttons button').forEach(b => b.classList.remove('selected'));
+    button.classList.add('selected');
+
+    selectedArea = button.textContent.trim();
+    // applyFilters()は呼ばない！
+  });
+});
+
+  // フィルター処理本体
+  function applyFilters() {
+  const keyword = document.getElementById('keywordInput').value.trim().toLowerCase();
+  const items = document.querySelectorAll('.result-item');
+
+  items.forEach(item => {
+    const itemTitle = item.dataset.title.toLowerCase();
+    const itemGenre = item.dataset.genre;
+    const itemArea = item.dataset.area;
+
+    const matchKeyword = !keyword || itemTitle.includes(keyword);
+    const matchGenre = !selectedGenre || itemGenre === selectedGenre;
+    const matchArea = !selectedArea || itemArea === selectedArea;
+
+    item.style.display = (matchKeyword && matchGenre && matchArea) ? 'block' : 'none';
+  });
+  document.getElementById('filterUI').style.display = 'none';
+  displaySelectedFilters(keyword, selectedGenre, selectedArea);
+  document.getElementById('activeFilters').innerHTML = `
+    <button onclick="resetFilters()">🔄 絞り込みを解除</button>
+  `;
+}
+
+
+  // ▼フィルター解除ボタンを表示する条件
+  if (keyword || selectedGenre || selectedArea) {
+    document.getElementById('activeFilters').innerHTML = `
+      <button onclick="resetFilters()">🔄 絞り込みを解除</button>
+    `;
+  } else {
+    document.getElementById('activeFilters').innerHTML = '';
+  }
+
+// 絞込み選択中の動作
+function displaySelectedFilters(keyword, genre, area) {
+  const container = document.getElementById('selectedFilters');
+  container.innerHTML = ''; // 一旦消す
+
+  if (keyword) {
+    const span = document.createElement('span');
+    span.className = 'filter-tag';
+    span.textContent = `#${keyword}`;
+    container.appendChild(span);
+  }
+  if (genre) {
+    const span = document.createElement('span');
+    span.className = 'filter-tag';
+    span.textContent = `#${genre}`;
+    container.appendChild(span);
+  }
+  if (area) {
+    const span = document.createElement('span');
+    span.className = 'filter-tag';
+    span.textContent = `#${area}`;
+    container.appendChild(span);
+  }
+
+  if (!keyword && !genre && !area) {
+    container.innerHTML = ''; // 条件なしなら空にする
+  }
+}
+
+
+  // 解除
+  function resetFilters() {
+  selectedGenre = '';
+  selectedArea = '';
+  document.getElementById('keywordInput').value = '';
+
+  // 選択されたボタンのスタイルを戻す
+  document.querySelectorAll('.genre-item').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.area-buttons button').forEach(b => b.classList.remove('selected'));
+
+  // 選択表示とフィルターUIを元に戻す
+  document.getElementById('selectedFilters').innerHTML = '';
+  document.getElementById('filterUI').style.display = 'block';
+
+  // 結果全表示
+  document.querySelectorAll('.result-item').forEach(item => item.style.display = 'block');
+
+  // ボタンは消さない
+  document.getElementById('activeFilters').innerHTML = `
+    <button onclick="resetFilters()">🔄 絞り込みを解除</button>
+  `;
+}
+
+// ジャンルボタンクリック時
+// ジャンルボタンクリック時
+document.querySelectorAll('.genre-item').forEach(button => {
+  button.addEventListener('click', () => {
+    // 他のボタンの選択状態を解除
+    document.querySelectorAll('.genre-item').forEach(b => b.classList.remove('selected'));
+    // 今のボタンだけ選択状態に
+    button.classList.add('selected');
+
+    // ジャンルを保存（←これだけでOK、applyFiltersは呼ばない）
+    selectedGenre = button.dataset.genre;
+  });
+});
+
+function filterArea(area) {
+  // 他のボタンの選択状態を解除
+  document.querySelectorAll('.area-buttons button').forEach(btn => btn.classList.remove('selected'));
+  
+  // 該当ボタンを選択
+  const selectedBtn = Array.from(document.querySelectorAll('.area-buttons button')).find(b => b.textContent === area);
+  if (selectedBtn) selectedBtn.classList.add('selected');
+
+  // エリアを保存（applyFiltersは呼ばない）
+  selectedArea = area;
+}
+
   </script>
+  <script src="../../script.js"></script>
 </body>
 </html>
 
