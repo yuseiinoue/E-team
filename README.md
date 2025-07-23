@@ -19,14 +19,68 @@
 
 ## ファイル構成
 - Eteam
+  - ADMIN
+    - images
+    - 01_admin.html
+    - 02_admin.html
+    - 03_admin.html
   - HOME
+    - EVENT
+      - images
+      - 01_event.html
+      - event.css
     - GURUME
+      - images
+      - 01_gurume.html
+      - 02_gurume.html
+      - 03_gurume.html
+      - 04_gurume.html
+      - gurume.css
+    - INN
+      - images 
+      - 01_inn.html
+      - 02_inn.html
+      - 03_inn.html
+      - 04_inn.html
+      - 05_inn.html
+      - 06_inn.html
+      - 07_inn.html
+      - 08_inn.html
+      - inn.css
+    - NEWS
+      - images 
+      - 01_news.html
+      - news.css
     - SIGHTSEEING
-    - EVENTS
-    - HOTEL
+      - images
+      - 01.sightseeing.html
+      - 02.sightseeing.html
+      - 03.sightseeing.html
+      - 04.sightseeing.html
+      - 05.sightseeing.html
+      - 06.sightseeing.html
+      - 07.sightseeing.html
+      - 08.sightseeing.html
+      - sightseeing.css
+    - 01_index.html
+    - HOME.css
+    - images
   - SEARCH
+    - 01_index.html
+    - style.css
   - MYPAGE
+    - MYPAGE_02
+      - ank.html
+      - style.css
+    - MYPAGE_03
+      - images
+      - coupon.html
+      - style.css
+    - 01_index.html
+    - scriptjs
+    - style.css
   - README
+  - images
   - style.css
   - script.js
 
