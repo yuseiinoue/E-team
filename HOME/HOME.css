@@ -242,26 +242,26 @@
 }
 
 .article-slider-wrapper {
-  overflow-x: auto;                     /* ← 横スクロール許可 */
-  background-color:white;
+  overflow: hidden; 
+  background-color: white;
   height: 100px;
   display: flex;
   align-items: center;
-  scrollbar-width: none;               /* Firefoxでスクロールバー非表示 */
   border-top: 1px solid darkgreen;
   border-bottom: 1px solid darkgreen;
-  box-shadow: 0 4px 8px rgba(0, 0, 0.5, 0.2);
-}
-
-.article-slider-wrapper::-webkit-scrollbar {
-  display: none;                        /* Chrome/Safariでスクロールバー非表示 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .article-slider {
   display: flex;
-  animation: scrollArticle 20s linear infinite; /* 自動スクロール継続 */
+  /* アニメーション：20秒かけて直線的に無限ループ */
+  animation: scrollArticle 20s linear infinite;
 }
 
+/* ★追加：マウスが乗っている間はアニメーションを停止 */
+.article-slider-wrapper:hover .article-slider {
+  animation-play-state: paused;
+}
 
 .article {
   min-width: 200px;
@@ -269,32 +269,31 @@
   box-sizing: border-box;
   white-space: nowrap;
   color: #000;
-  font-size: 1.2em;
+  font-size: 1.2em; /* 元のコードでは1.2emでしたが、見やすさのため調整してください */
   border-right: 1px solid darkgray;
   text-align: left;
-  display: flex;           /* 横並びにする */
-  align-items: center;     /* 縦中央揃え */
-  gap: 10px;               /* 画像とテキストの間に余白 */
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .article img {
-  width: 80px;             /* お好みで調整可能 */
+  width: 80px;
   height: 80px;
-  border-radius: 5px;      /* 角丸（任意） */
-  object-fit: cover;       /* はみ出し防止 */
+  border-radius: 5px;
+  object-fit: cover;
 }
 
-
-/* 無限スクロールアニメーション */
+/* 無限スクロール用のアニメーション */
 @keyframes scrollArticle {
   0% {
     transform: translateX(0%);
   }
   100% {
+    /* スライダー全体の幅の半分だけ左に移動させることで、無限ループして見えます */
     transform: translateX(-50%);
   }
 }
-
 /* もっと見るボタン */
 .more-button {
   background-color:cadetblue;
